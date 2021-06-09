@@ -1,0 +1,43 @@
+#taskform{
+border: 1px solid rgba(0, 100, 255, 0);
+    position: absolute;
+    
+   
+}
+
+
+#btnsb{
+    position: absolute;
+
+border-radius: 25px;
+align-self: center;
+background-color: aquamarine;
+border: 0px;
+bottom: 10px;
+}
+
+
+#rowtaskform{
+  
+   margin: 10px;
+}
+
+#rowgroupform{
+    margin: 10px;
+}
+
+#taskformmembers{
+  
+}
+
+#task_name{
+    border-radius:25px;
+}
+
+#task_desc{
+    border-radius:25px;
+}
+
+#group_name{
+    margin-left: 33px;
+}

@@ -1,0 +1,142 @@
+@media screen and (min-width: 769px) {
+#parent_userhome{
+    
+    position: absolute;
+    z-index: -3;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(Images/bg.jpg);
+    
+    background-size: cover;
+   
+}
+
+#child_userhome{
+    
+     background-color:rgba(255,255,255,0.5);
+    position: relative;
+    
+    margin-left: 9vh;
+    margin-bottom: 9vh;
+    border-radius: 25px;
+   top:10vh;
+    height: 80vh;
+    width: 90vw;
+    z-index: -2;
+   
+}
+
+        #groups{
+            position: relative;
+       background-color: rgba(255,255,255,1);
+           top: 10%;
+            left: 3%;
+            height: 80%;
+            width: 18%;
+            border-radius: 25px;
+            float:left; 
+            z-index: -1;
+            overflow: scroll;
+            scrollbar-width: none; 
+            
+    }        
+        #chatbox{
+            position:relative;
+       background-color: rgba(255,255,255,1);
+           top: 10%;
+            left: 10%;
+            height: 80%;
+            width: 33%;
+           overflow: scroll;
+            border-radius: 25px;
+            scrollbar-width: none;  
+            
+            
+    }
+    #Tasks{
+            position: absolute;
+       background-color: rgba(255,255,255,1);
+        float:right;
+           top: 10%;
+      
+            right: 3%;
+            height: 60%;
+            width: 33%;
+              overflow: scroll;
+            border-radius: 25px;
+            scrollbar-width: none;  
+            
+            
+    }
+    #clockdate{
+        padding-left: 30px;
+        position: absolute;
+       background-color: rgba(255, 255, 255,.2);
+        float:right;
+        bottom: 10%;
+      
+            right: 3%;
+            height: 17%;
+            width: 33%;
+                overflow: scroll;
+            border-radius: 25px;
+        scrollbar-width: none; 
+             
+    }
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+#button{
+    position: absolute;
+    z-index: 1;
+}
+    
+
+    
+    }
+
+
+
+
+@media screen and (max-width:575px){
+    #outer_Userhome_mob{
+            background-image: url(Images/bg.jpg);
+    
+    background-size: cover;
+        height: 100vh;
+        
+        overflow: scroll;
+    }
+            
+    #secouter_Userhome_mob{
+         
+       
+        
+        overflow: scroll;
+    }
+        
+    #nav_mob {
+        position: static;
+    }
+    
+    
+    #vh_groups{
+          background-image: url(Images/bg.jpg);
+    
+    background-size: cover;
+        
+        
+        background-color: aqua;
+    }    
+    #vh_chat{
+          background-image: url(Images/bg.jpg);
+    
+    background-size: cover;
+        
+        
+        background-color: aqua;
+    }
+}

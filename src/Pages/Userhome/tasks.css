@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
+
+@media screen and (max-width:575px)
+{
+      
+#heading_tasks{
+    /*background-color: aquamarine;*/
+    text-align: center;
+    background-color:#0df2b9;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    
+    border-radius: 0px 0px 0px 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 8vw;
+        
+}
+    #row{
+        height: 100vh;
+    }
+    
+    
+    #upcoming_link{
+                      
+   right: 00px;
+   position: relative; /**/
+    }
+    
+    #upcoming{
+    height: 7vw;
+    width: auto;;
+     right: 0px;
+        left: 30px;
+    top: 5px;
+      position: relative; 
+    z-index: 1;
+    }    
+    
+    #new_group_link{
+                      
+   left: 30px;
+   position: absolute; /**/
+    }
+    
+    #new_group{
+    height: 7vw;
+    width: auto;;
+       right: 0px;
+    top: 5px;
+      position: relative; 
+    z-index: 1;
+    }
+    
+    #reload{
+            left: 60px;
+        position: relative; 
+    }
+    #reloadm_req{
+        
+           position: relative;
+    height: 7vw;
+    width: auto;;
+    top: 5px;
+    left:0px;
+    right: 0px;
+    } 
+    
+    
+          #past_link{
+            left: 60px;
+        position: relative; 
+    }
+    #past{
+        
+           position: relative;
+    height: 7vw;
+    width: auto;;
+    top: 5px;
+    right: 90px;
+   
+    } 
+    
+    #name{
+        text-align: left;
+        padding-right: 40px;
+        padding-left: 15px;
+        
+        padding-top: 10px;
+    }
+    
+    #due {
+ padding-right: 15px;
+        padding-left: 40px;
+        padding-top: 10px;
+}
+
+
+    
+    
+    
+    #name > ul:nth-child(1) > div:nth-child(1) {
+ margin-top: 0px;
+    }
+    
+    #name > ul:nth-child(1) > div:nth-child(1) {
+ /*! border: ; border-top: 2px solid red;*/
+}
+
+    #due > ul:nth-child(1) > div:nth-child(1) {
+ margin-top: 0px;
+    }
+    #due > ul:nth-child(1) > div:nth-child(1) {
+/*! border: ; border-top: 2px solid red;*/
+    }
+
+    #breaklist{
+        padding-right: 40px;
+    }
+    
+    #break{   
+        display: none;
+        padding-right: 40px;
+       padding-left: 40px;
+    }
+    
+    #taskgroup_element{
+        height: 70px;
+     
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: rgba(255,255,255,0.6);
+        border-radius: 10px 0px 0px 10px;
+        
+    }   
+    #timegroup_element{
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+     background-color: rgba(255,255,255,0.6);
+       
+        border-radius: 0px 10px 10px 0px;
+    }
+    
+        #time_list{
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-bottom: 0px;
+            text-align: right;
+            
+    }
+    
+    #contact_element_list{
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-bottom: 0px;
+    }
+
+    
+/* Element | http://localhost:3000/userhome */
+
+#due {
+  padding-left: 0px;
+  margin-top: 0px;
+}
+
+/* Element | http://localhost:3000/userhome */
+
+#name {
+  padding-right: 0px;
+}
+
+    
+    
+/* Element | http://localhost:3000/userhome */
+
+#heading_tasks {
+  margin-bottom: 0px;
+}
+
+/* Element | http://localhost:3000/userhome */
+
+#due {
+  padding-top: 0px;
+}
+
+/* Element | http://localhost:3000/userhome */
+
+#name {
+  padding-top: 0px;
+}
+
+    
+    
+}
+
+@media screen and (min-width: 769px)
+{
+    #heading_tasks{
+     text-align: center;
+    background-color:#0df2b9;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    
+    border-radius: 25px 25px 0px 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+       
+    
+}
+    ul{
+        height: 50px;
+    }
+    #due{
+    right: 0px;
+    text-align: left;
+   
+    width: 150px;
+    
+    padding-left: 20px;
+}
+    #break{
+max-width: 10px;
+padding-left: 0px;
+padding-right: 0px;
+}
+
+#name {
+ padding-left: 0px;
+  
+}
+    #past_link{
+            left: 85px;
+        position: absolute;
+    }
+    #past{
+        
+           position: relative;
+    height: 2vw;
+    width: auto;;
+    top: 5px;
+    left:0px;
+    right: 0px;
+    } 
+    
+    #upcoming_link{
+                      
+   right: 85px;
+   position: absolute;
+    }
+    
+    #upcoming{
+        height: 2vw;
+    width: auto;
+     right: 0px;
+    top: 5px;
+      position: relative;
+    
+    }
+    #task_list{
+       
+    }
+    
+    #taskgroup_element {
+padding-left: 10px;
+padding-left: 0px;
+}
+}

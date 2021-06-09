@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+
+
+@media screen and (min-width:576px) and (max-width:768px) {
+
+}
+
+@media screen and (min-width: 769px) {
+    
+   #heading_cnt{
+        width: 100vw;
+        
+    }
+    
+    .left_img{
+        left: 0px;
+    bottom: 0px;
+    position: fixed;
+     z-index: -1;
+         max-width: 100vw;
+}
+
+#parent{
+    height: 100vh;
+    position: relative;
+    max-width:100vw; 
+    
+}
+
+.right_img{
+ height: 100vh;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+    max-width: 100vw;
+}
+
+
+.mesh {
+    font-family:'Noto Sans JP', sans-serif;
+    font-size: 10vw;
+    
+    /* font-weight: bold; */
+    
+    background-color: rgb(255,255,255,0.4);
+    color: rgb(13,127,211);
+    
+    letter-spacing: 2ex;
+    text-indent: 2ex;
+    top: 40%;
+    position: relative;
+    text-align: center;
+   
+
+}
+    
+    
+    .feature{
+        /*background-color: rgb(0,0,255,0.1);*/
+        background-image:  linear-gradient( rgba(255,255,255,0), rgba(0,0,0,0.1));
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .feature_heading{
+        position: absolute;
+        margin-top:20vh;
+        margin-left: 25px;
+        font-size: 3vw;
+        
+    }
+    
+    .daily_planner{
+        position: absolute;
+        height: 70vh;
+        margin-left:0vw;
+        margin-top: 25vh; 
+        right: 0px;/* 250px */
+    }
+    
+    .task_list{
+        position: absolute;
+        height: 90vh;
+        margin-left:0vw;
+        margin-top: 9vh;
+        overflow: hidden;
+         right: 0px;
+    }
+    
+    .feature_paragraph{
+        position: absolute;
+        font-size: 2vw;
+        margin-top: 35vh;
+        margin-left: 25px;
+    }
+    
+    #footer_one{
+        color: white;
+        text-align: center;
+         margin-top: 0vh;
+        padding-top: 2vh;
+         padding-bottom: 3vh;
+         margin-bottom: 0vh;
+        background-color: rgba(0,0,0,1);
+        width: 100vw;
+        padding-left: 0px;
+    }
+    #footer{
+        width: 100vw;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:575px)
+{
+        .left_img{
+    bottom: 0px;
+    position: fixed;
+     z-index: -1;
+            max-width: 100vw;
+            left: 0px;
+}
+
+.cnt{
+    height: 100vh;
+    position: relative;
+    
+}
+
+.right_img{
+ height: 100vh;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+    max-width:100vw;
+}
+
+            .left_img{
+max-width:100vw;
+                
+}
+    
+      .mesh {
+    font-size: 60px;
+      font-family:'Noto Sans JP', sans-serif;
+    background-color: rgb(255,255,255,0.4);
+    color: rgb(13,127,211);
+    
+    letter-spacing: 1ex;
+    text-indent: 1ex;
+    top: 40%;
+    position: relative;
+    text-align: center;
+
+}  
+    
+
+        .feature{
+        /*background-color: rgb(0,0,255,0.1);*/
+        background-image:  linear-gradient( rgba(255,255,255,0), rgba(0,0,0,0.1));
+        height: 100vh;
+    }
+        
+    .daily_planner{
+        position: relative;
+        height:45vh;
+        right: 0px;
+        margin-top: 10vh;    /* 250px */
+        max-width: 100vw;
+        bottom: 0px;
+    }
+    
+        .task_list{
+        position: relative;
+        height:60vh;
+        right: 0px;
+        margin-top: 0vh; 
+        
+            max-width: 100vw;
+    }
+    
+    #feature_1{
+        position: relative;
+    }
+    
+    .feature_heading{
+        position: relative;
+        margin-top:5vh;
+        left: 0px;
+        margin-left: 0px;
+        font-size: 30px;
+        
+    }    
+        
+    .feature_paragraph{
+        position:  relative;
+        font-size: 20px;
+        margin-top: 1vh;
+        margin-left: 5px;
+        left: 0px;
+    }
+        #footer_one{
+        color: white;
+            position: relative;
+        text-align: center;
+         margin-top: 0vh;
+        padding-bottom: 2vh;
+        padding-top: 1vh;
+     
+       
+            padding-left: 0px;
+        background-color: rgba(0,0,0,1);
+            font-size: 10px;
+            margin-bottom: 0px;
+            bottom: 0px;
+    }
+    #footer{
+        background-color: rgba(0,0,0,1);
+        
+    }
+}

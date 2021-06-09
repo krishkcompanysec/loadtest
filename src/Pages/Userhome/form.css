@@ -1,0 +1,88 @@
+#sub_btn{   
+position:relative;
+    left: 40%;
+    border-radius: 25px;
+    align-self: center;
+    background-color: aquamarine;
+    border: 0px;
+    margin-bottom: 20px
+        }
+
+
+#form{
+    padding-top: 15px;
+    padding-left: 18px;
+    
+}
+
+
+#group_name{
+   
+    padding:5px;
+    padding-top:5px;
+    margin: 10px;
+    margin-top: 20px;
+    border: 1px solid blue;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06); 
+    border-radius:25px;
+}
+
+#headingform{
+    
+    height: auto;
+}
+.row{
+    
+    border-radius:25px;
+    
+}
+#email_list{
+    
+    padding-left: 10px;
+    display: inline-block;
+}
+#indmembers{
+    
+    position: relative;
+    float: left;
+    max-width: 80%;
+}
+
+#chkmembers
+{  position: absolute;
+       float: right;
+    width: 10px;
+    right: 50px;
+}
+#chkgroups
+{  position: absolute;
+       float: right;
+    width: 10px;
+    right: 50px;
+}
+
+#groupmembers{
+        max-width: 200px;
+}
+
+#people{
+     padding-left: 10px;
+   margin-top: 10px;
+    background-color: rgba(0,0,255,0.1);
+    max-width: 80%;
+}
+#group{
+    padding-left: 10px;
+   margin-top: 10px;
+    max-width: 80%;
+    background-color: rgba(0,0,255,0.1);
+}
+
+h5{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#sub_btn{
+ margin-top: 20px;   
+}

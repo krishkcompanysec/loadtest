@@ -1,0 +1,215 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
+@media screen and (min-width: 769px)
+{
+ 
+#group_data{
+    
+    
+    text-align: left;
+    position: relative;
+  
+    background-color: transparent;
+}
+
+
+#chatbox_outer{
+      position: relative;
+        background-color: transparent;
+       
+}
+
+
+#heading_chatbox{
+    /*background-color: aquamarine;*/
+    background-color:#0df2b9;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+}
+
+#headingform{
+    font-family: 'Oswald', sans-serif;
+    padding-left: 20px;
+    font-size: 40px;
+     background-color:#0df2b9;
+    font-weight:lighter;
+}
+
+#groupname_heading{
+    background-color:#98B3EB;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+   
+}
+
+#desc_heading{
+     background-color:#005CAD;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+    color: white;
+}
+
+#created_by{
+    float: left;
+}
+
+#name_ceated_by{
+    padding-left: 40px;
+   
+}
+
+#delete_btn{
+   position:relative;
+    left: 70%;
+    border-radius: 25px;
+    align-self: center;
+    background-color: aquamarine;
+    border: 0px;
+    margin-bottom: 20px;
+}
+#group_data{
+    padding-left:18px;
+    font-family: 'Oswald', sans-serif;
+}
+ 
+    
+    #subgroups{
+    text-decoration: underline;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+        
+}       #groupmode{
+    
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+        
+}    
+    #groupstoadd{
+    text-decoration: underline;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+}
+    
+    #sbgrprow{
+        
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (max-width:575px)
+{
+    
+    
+    #group_data{
+    
+    
+    text-align: left;
+    position: relative;
+  
+    background-color: transparent;
+}
+
+
+#chatbox_outer{
+      position: relative;
+        background-color: transparent;
+       
+}
+
+
+#heading_chatbox{
+    /*background-color: aquamarine;*/
+    background-color:#0df2b9;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 10vw;
+}
+
+#headingform{
+    font-family: 'Oswald', sans-serif;
+    padding-left: 20px;
+    font-size: 40px;
+     background-color:#0df2b9;
+    font-weight:lighter;
+}
+
+#groupname_heading{
+    background-color:#98B3EB;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 10vw;
+}
+
+#desc_heading{
+     background-color:#005CAD;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+        padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+    color: white;
+}
+
+#created_by{
+    float: left;
+}
+
+#name_ceated_by{
+    padding-left: 40px;
+   
+}
+
+#delete_btn{
+   position:relative;
+    left: 70%;
+    border-radius: 25px;
+    align-self: center;
+    background-color: aquamarine;
+    border: 0px;
+    margin-bottom: 20px;
+}
+#group_data{
+    padding-left:18px;
+    font-family: 'Oswald', sans-serif;
+}
+    
+    
+
+    
+}

@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+@media screen and (max-width:575px)
+{
+ 
+    .nav-link{
+        font-family:'Quicksand', sans-serif;
+        font-weight: 400;
+        
+    }
+    .navbar-nav{
+    
+       #padding-left: 0; 
+         display: block;
+    margin-top:0;
+    
+    }
+    
+    .navbar-collapse{
+        margin-top: 1%;
+        background-color: rgba(255, 255, 255, .5);
+    }
+    
+    .navbar-light{     
+        text-align: center;
+    }
+
+    .navbar-light .navbar-toggler-icon{
+        float: left;
+        #padding-left: 0;
+        
+    }
+    
+    .row{
+       margin-left:0px;
+       margin-right:0px;
+    }
+    
+     .navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 1);
+}
+    
+  .mesh_icon{
+       display: none;
+    }
+
+
+  
+}
+
+
+@media screen and (min-width:576px) and (max-width:768px) {
+    
+
+  
+/* Inline #2 | http://localhost:3000/ */
+
+
+    .navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 1);
+  font-size: 18px;
+        font-family:'Quicksand', sans-serif;
+}
+   .nav-link{ 
+        
+    /*    padding-left: 0;  */
+        
+    }
+
+    .navbar-nav{
+     /*   padding-left: 0;   */
+    }
+
+    .navbar{
+        /*padding-left: 0;*/
+    }
+    
+    .navbar-expand-sm .navbar-nav .nav-link{     
+       /* padding-left: 0;   */
+        
+    }
+    
+    .navbar-expand-sm .navbar-collapse{
+        
+        #padding-left: 0;
+    }
+    .row{
+       margin-left:0px;
+       margin-right:0px;
+    }
+    
+        #left{
+        top: 1ex;
+        position: fixed;
+            z-index: 1;
+    }
+    #right{
+        right: 0px;
+        top: 1ex;
+        position: fixed;
+        margin-right: 13px;
+         z-index: 1;
+    }
+    
+    .mesh_icon{
+        height: 50px;
+         padding-right: 10px;
+    }
+    
+    #explore{
+        border-radius: 25px;
+        background-color:rgba(255,255, 255, 0.8);
+        padding-left: 8px;
+    }
+    
+    #explore {
+border-radius: 25px;
+}
+    
+    
+}
+
+
+
+
+
+@media screen and (min-width: 769px) {
+   
+ 
+    
+.navbar-light {
+
+    max-width: 100vw;
+}
+
+    .navbar-expand-sm {
+
+}
+    
+    #left{
+        top: 1ex;
+        position: fixed;
+       
+    }
+    #right{
+        right: 0px;
+        top: 1ex;
+        position: fixed;
+        margin-right: 20px;    
+       
+    }
+    
+    #explore{
+        border-radius: 25px;
+        background-color:rgba(255,255, 255, 0.8); 
+    }
+    
+   
+    
+    .nav-link{
+        font-family:'Quicksand', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        
+    }
+
+    .navbar-nav{
+        padding-left: 0;
+        
+    }
+    
+    #left{
+        border-radius: 0px 25px 25px 0px;
+        
+    }
+    
+    .navbar-light{     
+        top: 0;
+        z-index: 1;
+    }
+    
+
+
+
+    
+    .navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 1);
+        
+        
+        
+}
+    
+
+    .mesh_icon{
+        height:50px;
+        padding-right: 15px;
+        padding-left: 3%;
+        
+    }
+    
+  
+    
+    
+    
+    
+    
+    
+
+}
