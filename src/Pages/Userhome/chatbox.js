@@ -200,7 +200,7 @@ console.log(em);
            "created_by":{email:created_by},
             "group_groups":res3,
              "uuid": id,
-               "group_users":gro_inds,
+               "group_users":data,
                  is_group : grc
             }
             
@@ -361,10 +361,11 @@ var difference;
       function load_ch(){
          
          
-                if(created_by == eid || grc == true){
+                if(created_by == eid){
              console.log("admin");
            set_task_component(1);}
          else{
+             console.log()
           set_task_component(4);}
           
       }   
@@ -426,7 +427,7 @@ var difference;
         
         <input type="text" id="group_name" onChange={handleChange}  Value={group_name} />
                 
-        <button id="changebutton" onClick={handleSubmit}>Submit Changes</button>
+        <button onClick={handleSubmit}>Submit Changes</button>
         
         </div>
         )
