@@ -146,7 +146,7 @@ console.log(config);
 axios(config)
 .then(function (response) {
   console.log(JSON.stringify(response.data));
-    {/*window.location.reload(false); */}
+    window.location.reload(false); 
 
 })
 .catch(function (error) {

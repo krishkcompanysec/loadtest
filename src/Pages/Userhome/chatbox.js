@@ -426,7 +426,7 @@ var difference;
         
         <input type="text" id="group_name" onChange={handleChange}  Value={group_name} />
                 
-        <button onClick={handleSubmit}>Submit Changes</button>
+        <button id="changebutton" onClick={handleSubmit}>Submit Changes</button>
         
         </div>
         )
