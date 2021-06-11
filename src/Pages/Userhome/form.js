@@ -360,9 +360,9 @@ axios(config)
             b =  JSON.parse(sessionStorage.getItem("contacts")); 
             console.log("ud");
         }    
-    if(sessionStorage.getItem("groups") != [])
+    if(sessionStorage.getItem("admgrpchn") != [])
         {
-            var string =  sessionStorage.getItem("groups"); 
+            var string =  sessionStorage.getItem("admgrpchn"); 
                 g = string.split(",");
             console.log(g);
         }

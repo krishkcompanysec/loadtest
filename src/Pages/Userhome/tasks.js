@@ -7,9 +7,11 @@ import upcoming from './Images/upcoming.png';
 import past from './Images/past.png';
 import { Link } from 'react-router-dom';
 import Taskform from './taskform';
+import Edittaskform from './taskeditform';
 import moment from 'moment';
 import tz from 'moment-timezone';
 import _ from 'lodash';
+import store_edittask from './store_edittask';
 var arrdata = [];
 var arr=[];
 var arrpast=[];
@@ -22,11 +24,12 @@ var hd = "Upcoming";
 
 /* ######################    tasks    ########################### */
 
-
+var title, description,completed,assignee_groups,assignee_users,time_due,uuid ="",assigner="";
 
 function Tasks(){
     
      const token = sessionStorage.getItem("token");
+    
 
     
    const [state, setState] = useState({todos:[]});
@@ -50,7 +53,7 @@ function Tasks(){
         axios.get("https://themeshapp.herokuapp.com/main/tasks/show/",{
             headers: {'Authorization': "Token " + token}
             }).then((response) => {
-         /*console.log(response.data); */
+        
          /*   console.log(response.data);
           console.log(typeof(response.data)); */
           arr = response.data;
@@ -67,20 +70,14 @@ function Tasks(){
            
               hd = "Upcoming";
             
-            console.log("sample time");
+           
             let st =moment(arr[0]["time_due"]).format('DD MMM YYYY');
-            console.log( st);        
+                   
   
-            console.log("today");
-            console.log(today);            
-            console.log("past");
-            console.log(arrpast);
-            console.log("upcoming");
-            console.log(arrup);
             
             setState({todos:response.data})
             
-     /* console.log(typeof(state.todos)); */
+    
              setflag(1);
 callback();
         })
@@ -118,9 +115,143 @@ callback();
     function loadform(){
         setflag(2);
         console.log("form");
+    }    
+    
+    function loadeditform(){
+        
+                console.log("sending");
+         const email = sessionStorage.getItem("email");
+        console.log("email");
+        console.log(email);
+    {/*    store_edittask.dispatch({
+            type: "task_edit",
+            payload:
+                { title : title,    
+                  description :  description,
+                  completed : completed,
+                  assignee_groups  : assignee_groups,
+                  assignee_users : assignee_users,
+                 uuid : uuid,
+                 assigner : assigner
+                }
+            
+        }) */}
+                console.log("assigner");
+        console.log(assigner);
+
+        if(assigner["email"] == email)
+        setflag(4);
+        else
+        window.alert("You aren't the assigner");
+        console.log("form");
+    }
+        
+    function chnge(){
+        
+                console.log("sending");
+        
+        
+        store_edittask.dispatch({
+            type: "task_edit",
+            payload:
+                { title : title,    
+                  description :  description,
+                  completed : completed,
+                  assignee_groups  : assignee_groups,
+                  assignee_users : assignee_users,
+                 uuid : uuid,
+                time_due : time_due,
+                 assigner : assigner
+                }
+            
+        })
+        
+      
+        console.log("form");
     }
     
+    function tsk(titled, descriptiond,completedd,assignee_groupsd,assignee_usersd,time_dued,uuidd,assignerd){
+        
+        const email = sessionStorage.getItem("email");
+        console.log(titled, descriptiond,completedd,assignee_groupsd,assignee_usersd,time_dued,uuidd,assignerd)
+        
+        title = titled;
+        description=descriptiond;
+        completed=completedd;
+       assignee_groups=assignee_groupsd;
+        assignee_users = assignee_usersd;
+        time_due = time_dued;
+        uuid = uuidd;
+         assigner = assignerd;
+        
+        console.log("email");
+        console.log(email);
+        console.log("assignee groups");
+        console.log(assignee_groups);
+        
+        if(assigner["email"] == email)
+            {console.log("5");
+        setflag(5);}
+        else{
+        setflag(3);}
+        
+    }
 
+    
+    function done(){
+var axios = require('axios');
+var FormData = require('form-data');
+var data = new FormData();
+data.append('uuid', uuid);
+
+var config = {
+  method: 'put',
+  url: 'https://themeshapp.herokuapp.com/main/tasks/completed/',
+  headers: { 
+    'Authorization': 'Token ' + token, 
+  
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+    window.location.reload(false);
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+
+    }
+    
+        
+    function remove(){
+        
+        var axios = require('axios');
+var FormData = require('form-data');
+var data = new FormData();
+data.append('uuid', uuid);
+
+var config = {
+  method: 'delete',
+  url: 'https://themeshapp.herokuapp.com/main/tasks/delete/',
+  headers: { 
+    'Authorization': 'Token ' + token
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+        
+    }
     
     
     if(flag == 0){
@@ -199,7 +330,7 @@ callback();
         <div className="row" id="phonerow">
          <div className="col" id="name">  
        
-             {arr.map(item => (<ul id="contact_element_list"><div className="container" id="taskgroup_element">{item.description.title}</div></ul>))}
+             {arr.map(item => (<ul id="contact_element_list"><Link onClick={() => tsk(item.description.title,item.description.description,item.completed,item.assignee_groups,item.assignee_users,item.time_due,item.uuid,item.assigner)} ><div className="container" id="taskgroup_element">{item.description.title}</div></Link></ul>))}
 
     {/*  {state.todos[0].map(item => (<ul id="contact_element_list"><div className="container" id="group_element">{item.time_due}</div></ul>))}
     */}
@@ -269,7 +400,127 @@ callback();
         
             )}
              
+    else if (flag == 3){
+        chnge();
+                return(
+        <div>
+                        
+                               <h1 id="heading_tasks">
+      
+                              <Link id="new_group_link" onClick={loadeditform} > <img alt="panda" className="new" id="new_group" src={pencil} /></Link>       
+
+        {title}
+              <Link id="reload" onClick={req}> <img alt="panda" className="reload_icon" src={reload} /></Link>
+ 
+        
+        </h1>
+                      
+                        <h4 id="deschead">Description
+                        </h4>
+                          <h5 id="texthead">{description}</h5>
+                        
+                        <h4 id="deschead">Due Date
+                        </h4>
+
+                        <h5 id="texthead">{moment(time_due).format('DD MMM YY, hh A')}</h5>
+                        
+           
+                        
+                        <h4 id="deschead">Assigned by
+                        </h4>
+            <h5 id="texthead"> {assigner["email"]}</h5>
+                        
+                        <button id="buttondel" onClick={done}>Mark as done</button>
+       
+                
+            </div>
+        
+        
+            )
+    }
     
+     else if (flag == 4){
+        
+                return(
+        <div>
+                        <h1 id="heading_tasks">
+                        Edit Task
+                            
+                                   <Link id="reload" onClick={req}> <img alt="panda" className="reload_icon" src={reload} /></Link>
+                        </h1>
+      
+                        <Edittaskform/>          
+
+        
+          
+                              
+                        
+        
+                
+            </div>
+        
+        
+            )
+    }
+    
+    else if (flag == 5)
+    {
+    chnge();
+                return(
+        <div>
+                        
+                               <h1 id="heading_tasks">
+      
+                              <Link id="new_group_link" onClick={loadeditform} > <img alt="panda" className="new" id="new_group" src={pencil} /></Link>       
+
+        {title}
+              <Link id="reload" onClick={req}> <img alt="panda" className="reload_icon" src={reload} /></Link>
+ 
+        
+        </h1>
+                        <h4 id="deschead">Status
+                        </h4>
+                    <h5 id="texthead">{completed.length} users completed </h5>
+                    <h5 id="texthead">{assignee_users.length} users to complete </h5>
+                        <h4 id="deschead">Description
+                        </h4>
+                          <h5 id="texthead">{description}</h5>
+                        
+                        <h4 id="deschead">Due Date
+                        </h4>
+
+                        <h5 id="texthead">{moment(time_due).format('DD MMM YY, hh A')}</h5>
+                        
+           
+                        
+                        <h4 id="deschead">Assigned by
+                        </h4>
+            <h5 id="texthead"> {assigner["email"]}</h5>
+                        
+                         <h4 id="deschead">Assigned Users</h4>
+        
+                           <h5 id="texthead">{assignee_users.map(item => (<ul ><div className="container" >{item["email"]}</div></ul>))} </h5>  
+                        
+                        <h4 id="deschead">Assigned Groups</h4>
+        
+                           <h5 id="texthead">{assignee_groups.map(item => (<ul ><div className="container" >{item["groupname"]}</div></ul>))} </h5>
+                                            
+                        <h4 id="deschead">Completed Users</h4>
+        
+                           <h5 id="texthead">{completed.map(item => (<ul ><div className="container" >{item["email"]}</div></ul>))} </h5>
+                        
+                        
+                        
+                        
+                        
+                        <button onClick={remove} id="buttondelete">Delete</button>
+       
+                
+            </div>
+        
+        
+            )
+    }
 }
 
 export default Tasks;

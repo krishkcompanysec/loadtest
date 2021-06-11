@@ -209,7 +209,9 @@
     font-family: 'Oswald', sans-serif;
 }
     
-    
+    .reload_icon{
+        z-index: 3;
+    } 
 
     
 }

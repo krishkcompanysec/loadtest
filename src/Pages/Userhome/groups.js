@@ -28,17 +28,30 @@ function Groups(){
     },[]) 
     
     del = function refresh(){
-        console.log("req")
+        
         request();
     }
     
     function setcontact(dt){
+        const ema = sessionStorage.getItem("email");
+        console.log("dt");
         console.log(dt);
         var arr_cnt=[];
-        console.log("arr cnt");
+        var arr_adch=dt;
+        var arr_ch =[];
         
         dt.map(item => (arr_cnt.push(item["groupname"])));
+         console.log("arr_cnt");
+         console.log(arr_cnt);
         
+        arr_adch = arr_adch.filter( x => x["created_by"]["email"] == ema || x["is_group"] == true)
+        
+        arr_adch.map(item => (arr_ch.push(item["groupname"])));
+        
+        console.log("arr_ch");
+        console.log(arr_ch);
+        
+        sessionStorage.setItem("admgrpchn",(arr_ch));
         console.log(arr_cnt);
         if(arr_cnt != [])
             sessionStorage.setItem("groups",arr_cnt);

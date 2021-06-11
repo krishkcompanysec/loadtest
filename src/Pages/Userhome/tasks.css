@@ -261,8 +261,34 @@ padding-right: 0px;
       position: relative;
     
     }
-    #task_list{
+    #deschead{
+      padding-left: 20px;
+        text-decoration: underline;
+            font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    }    
+    #texthead{
+      padding-left: 20px;
+    }
+    #buttondel{
        
+   position: relative;
+        left: 15px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    background-color: aquamarine;
+    border: 0px;
+    margin-bottom: 20px
+    }    
+    #buttondelete{
+       
+   position: relative;
+        left: 15px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    background-color:rgba(242, 38, 19, 0.9);
+    border: 0px;
+    margin-bottom: 20px
     }
     
     #taskgroup_element {

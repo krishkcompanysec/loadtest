@@ -3,6 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import "./taskform.css";
+import _ from 'lodash';
 function Taskform()
 {
     const token = sessionStorage.getItem("token");
@@ -63,8 +64,16 @@ function Taskform()
         };
 
         axios(config).then(function (response) {
-            /*console.log(JSON.stringify(response.data)); */
-            setState({groups: response.data});
+           console.log(response.data); 
+      
+            
+           var admingroups = _.filter(response.data,function(o) {
+       return o["created_by"]["email"]==email || o["is_group"] == true ; 
+    }); 
+            console.log("admingroups");
+            console.log(admingroups);
+            
+            setState({groups: admingroups});
         }).catch(function (error) {
             console.log(error);
         });
@@ -191,7 +200,7 @@ function Taskform()
        str = checkgroupstate.b;
        if(str != ""){
        str = str.substring(1);
-       stripped =str.replace(/\s+/g, '')
+       stripped =str;
        res = stripped.split(",");
          res4 = res.map(function(val){
               return {"groupname":val}
@@ -319,7 +328,7 @@ axios(config)
                     <h5> Assignee Groups </h5>
         
              {state.groups.map(item =><div className="row"  id="rowgroupform">  <div className="col"> {item.groupname}</div> <div className="col"> <input type="checkbox" onChange={handlegroupCheck} id={item.groupname}></input></div></div> )}
-            </label>
+            </label><br/>
              <input type="submit" value="Submit" id="btnsb"/>
             {/*   <input type="button" onClick={ checkset}/> */} 
             </form>

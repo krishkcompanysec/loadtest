@@ -18,18 +18,25 @@ var group_name;
 var data=[];
 var group_groups=[];
 var id;
- var res=[] ;
+
 var addgroups = "abcd";
 var created_by;
 var em=["dummy"];
+var us = ["dummy"];
 var res=[];
 var res3=[];
+var gro_inds=[];
 var gn;
 var grc;
+var grch="";
+var conts;
+var contsarr;
+var addlist=[];
 function Chatbox(){
      
      console.log("groups");
      console.log(sessionStorage.getItem("groups"));
+     conts = sessionStorage.getItem("contacts");
     const[chat_component_status, set_task_component] = useState(0);
     const token = sessionStorage.getItem("token");
     const eid = sessionStorage.getItem("email");
@@ -48,15 +55,12 @@ function Chatbox(){
         a:""
     });
     
-        const [checkgroupstate, checkgroupsetState] = useState({
-        b:""
-    });
+        const [checkgroupstate, checkgroupsetState] = useState([]);
     
     
         const handleCheck = a =>{
         const {id , value,checked} = a.target;  
-        console.log("change on");
-        console.log(id,value,checked);
+
         if(checked == false){
             console.log("remove");
              em = em.filter(x => x != id);
@@ -65,15 +69,44 @@ function Chatbox(){
             else{
                em.push(id);
             }
-     console.log("em");
-console.log(em);
+
+    }
+            
+        const handleuserCheck = a =>{
+        const {id , value,checked} = a.target;  
+
+        if(checked == false){
+            console.log("remove");
+             us = us.filter(x => x != id);
+       
+        }
+            else{
+               us.push(id);
+            }
+  console.log("us")
+  console.log(us)
+    }
+           
+        const handleuseraddCheck = a =>{
+        const {id , value,checked} = a.target;  
+
+        if(checked == true){
+                           us.push(id);
+             
+       
+        }
+            else{
+
+                us = us.filter(x => x != id);
+            }
+  console.log("us")
+  console.log(us)
     }
     
     
         const handleaddCheck = b =>{
         const {id , value,checked} = b.target;  
-        console.log("change on");
-        console.log(id,value,checked);
+
         if(checked == true){
            em.push(id);
         }
@@ -82,24 +115,48 @@ console.log(em);
             }
      console.log("em");
 console.log(em);
+           
     }
     
     
         const handleChange = a =>{
-        const {id , value} = a.target;   
+        const {id , value} = a.target; 
+            
         setState(prevState => ({
             ...prevState,
             [id]:value
         }))
     console.log(state); 
     }   
+                  
+        const handlegroupChange = a =>{
+        const {id , value, checked} = a.target;   
+        
+            if(grch=="Group")
+                {
+                    if(value == true)
+                         grc = true
+                    else
+                        grc = false
+                }
+            else
+            {
+                    if(value == true)
+                         grc = false
+                    else
+                        grc = true
+            }
+ 
+    }   
               
         const handleSubmit = a =>{
          
             console.log("state"); 
             console.log(state); 
+            console.log("namestate"); 
             console.log(namestate); 
-           
+          console.log("checkgroupstate");
+          console.log(checkgroupstate);
             if(state.group_name == null){
                 console.log("yes");
                 gn = namestate;
@@ -109,15 +166,19 @@ console.log(em);
                 gn = state.group_name;
             }
             
-            
+            gro_inds = us.map(function(val){
+              return {"email":val}
+          })
 
          res3 = em.map(function(val){
               return {"groupname":val}
           })
            
                    
-                    
-          request();        
+                    console.log(gro_inds);
+         request();
+            
+       
     }   
        
     
@@ -125,7 +186,13 @@ console.log(em);
         
         function request(){
     
-
+{/*
+          "groupname":gn,
+           "created_by":{email:created_by},
+            "group_groups":res3,
+             "uuid": id,
+               "group_users":data,
+                 is_group : grc*/}
    
    
            const payload ={
@@ -133,7 +200,8 @@ console.log(em);
            "created_by":{email:created_by},
             "group_groups":res3,
              "uuid": id,
-               
+               "group_users":gro_inds,
+                 is_group : grc
             }
             
     console.log(payload); 
@@ -150,11 +218,13 @@ var config = {
   },
   data : payload
 };
+console.log("config");
 console.log(config);
         
 axios(config)
 .then(function (response) {
-  console.log(response.data);
+  console.log(response.status);
+        window.location.reload(false);
    
 })
 .catch(function (error) {
@@ -163,7 +233,9 @@ axios(config)
            
     }
         
-        
+        function set(){
+            set_task_component(0);
+        }
         
         
         
@@ -216,20 +288,42 @@ axios(config)
 
    
      load_chathead = function set_load_chathead(){
-          set_task_component(1);
+         
+          
           group_name = store_state["value"]["name"];
-         console.log("group_name");
-         console.log(group_name);
+
          namesetState(group_name);
           created_by = store_state["value"]["created"]["email"];
           id = store_state["value"]["id"]; 
           grc = store_state["value"]["is_group"]; 
-         console.log("grc");
-         console.log(grc);
-          data = store_state["value"]["members_data"]["members"]; 
+         
+          if(grc == true)
+              {
+                  grch = "Group";
+                
+              }
+         else{
+             grch = "Channel"
+         }
+     data = store_state["value"]["members_data"]["members"];
+us =  data.map(c => c["email"]);
+         
           group_groups = store_state["value"]["group_groups"]; 
           set_grouplist({group_data:group_groups})
-          console.log(group_groups);
+         if(conts !=[]){
+               console.log(conts);
+             contsarr = JSON.parse(conts);
+             console.log("contsarr")
+             console.log(contsarr)
+              addlist = contsarr.map(c=> c["email"]);
+     
+           
+          for (var i = 0; i < data.length; i++) {
+            addlist = addlist.filter(x => x != data[i]["email"]);
+        }    }
+         console.log("addlist");
+         console.log(addlist);
+         
          addgroups = sessionStorage.getItem("groups");
          console.log("members");
          console.log(data);          
@@ -238,15 +332,20 @@ axios(config)
          console.log(created_by); 
          if(res !=[])
          { console.log("addgroups");console.log(addgroups);
-             res = addgroups.split(",");}
+             res = addgroups.split(",");
+         console.log("res");
+         console.log(res);
+         }
+         
          res = res.filter(a => a != group_name);
+          
          console.log("res");
          console.log(res);         
          
         em = group_groups.map(c => c["groupname"]);
          console.log("em");
          console.log(em);
-         console.log(group_name);
+
          
 /* let difference = res.filter(x => !res.includes("pl + design ppp")); */
 var difference;
@@ -255,19 +354,31 @@ var difference;
         }
          console.log("difference");
          console.log(res);
+          checkgroupsetState(res);
          load_ch();
      }
      
       function load_ch(){
-          set_task_component(1);
+         
+         
+                if(created_by == eid || grc == true){
+             console.log("admin");
+           set_task_component(1);}
+         else{
+          set_task_component(4);}
           
       }   
+    
+    function dest(){
+        res=[];
+    }
      load_form = function set_load_form(){
           set_task_component(2);
      }
     
      load_desc = function set_load_desc(){
-          set_task_component(3);
+           console.log("desc");
+      set_task_component(3);
      }
      
      load_banner = function set_load_banner(){
@@ -294,18 +405,26 @@ var difference;
         return(
         <div>
                 
-        <Link onClick={load_desc}><div><h1 id="groupname_heading">{group_name}</h1>             <Link id="reload"> <img alt="panda" className="reload_icon" src={reload} /></Link></div></Link>
-                 <h4 id="groupmode">Group Mode &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" defaultvalue={grc}></input></h4>
+        <Link onClick={load_desc}><div><h1 id="groupname_heading">{group_name}</h1>             </div></Link>
+                
+                <Link id="reload" onClick={set}> <img alt="panda" className="reload_icon" src={reload} /></Link>
+                 <h4 id="groupmode">{grch} &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="gmode" onChange={handlegroupChange} defaultChecked></input></h4>
                 
                 
                 <h4 id="subgroups">Subgroups</h4>
         <p> {group_groups.map(item => (<div className="row" id="sbgrprow">  <div className="col" id="indmembers"> {item.groupname} </div> <input type="checkbox" onChange={handleCheck} id={item.groupname} defaultChecked></input> </div> ))} </p>        
                 
                 <h4 id="groupstoadd">Groups to Add</h4>
-                <p> {res.map(item => (<div className="row" id="sbgrprow"> <div className="col" id="indmembers">{item} </div><input type="checkbox" id={item} onChange={handleaddCheck}></input> </div> ))} </p>
+                <p> {checkgroupstate.map(item => (<div className="row" id="sbgrprow"> <div className="col" id="indmembers">{item} </div><input type="checkbox" id={item} onChange={handleaddCheck}  ></input> </div> ))} </p>                
+                
+                <h4 id="groupstoadd">Users</h4>
+                <p> {data.map(item => (<div className="row" id="sbgrprow"> <div className="col" id="indmembers">{item.email} </div><input type="checkbox" id={item.email}   onChange= {handleuserCheck} defaultChecked></input> </div> ))} </p>         
+                
+                <h4 id="groupstoadd">Users to Add</h4>
+                <p> {addlist.map(item => (<div className="row" id="sbgrprow"> <div className="col" id="indmembers">{item} </div><input type="checkbox" id={item} onChange={handleuseraddCheck}  ></input> </div> ))} </p>
                 
         
-        <input type="text" id="group_name" onChange={handleChange} defaultValue={group_name} placeholder={group_name}/>
+        <input type="text" id="group_name" onChange={handleChange}  Value={group_name} />
                 
         <button onClick={handleSubmit}>Submit Changes</button>
         
@@ -326,7 +445,7 @@ var difference;
         return(
         <div id="chatbox_outer">
             <div id="chatbox_head">
-        <h1 id="desc_heading">{group_name}</h1>
+        <h1 id="desc_heading">{group_name}</h1><Link id="reload" onClick={set}> <img alt="panda" className="reload_icon" src={reload} /></Link>
             </div>
             <div id="group_data">
         <h5 id="ceated_by">Created by :</h5>
@@ -339,6 +458,27 @@ var difference;
             </div>
         )
         }
+     else if(chat_component_status==4)
+        {
+        return(
+        <div>
+                
+        <Link onClick={load_desc}><div><h1 id="groupname_heading">{group_name}</h1>             </div></Link><Link id="reload" onClick={set}> <img alt="panda" className="reload_icon" src={reload} /></Link>
+                 <h4 id="groupmode">{grch} &nbsp;&nbsp;&nbsp;&nbsp; </h4>
+                
+                
+                <h4 id="subgroups">Subgroups</h4>
+        <p> {group_groups.map(item => (<div className="row" id="sbgrprow">  <div className="col" id="indmembers"> {item.groupname} </div></div> ))} </p>        
+            
+                
+        
+    
+                
+      
+        
+        </div>
+        )
+        }    
     
     
 }
@@ -349,9 +489,9 @@ export default Chatbox;
 
 store_groups.subscribe(()=>{
    
-    console.log("change");
+   
     store_state=store_groups.getState();
-     console.log(store_state);
+     
     flag = store_state["state"];
     
     if(flag == 1)
